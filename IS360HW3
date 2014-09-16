@@ -1,0 +1,38 @@
+#1
+t <- c(1:1000)
+u <- NULL
+for (i in t)
+{
+  u[i] = (((i / 3) - floor(i / 3)) * ((i / 7) - floor(i / 7)) * ((i / 11) - floor(i / 11)) == 0)
+}
+v <- sum(u)
+print(v)
+
+#2
+Missing <- function(x) {
+  sum(is.na(x))
+}
+
+#3
+a <- seq(1,12,2)
+b <- c(1:6)
+c <- c("une", "deux", NA, "quatre", NA, "six")
+Frame <- data.frame(a, b, c)
+Frame
+FrameNA <- function(x) {
+    c(col1=Missing(x[[1]]), col2=Missing(x[[2]]), col3=Missing(x[[3]]))}
+FrameNA(Frame)
+
+#4
+ulist <- function(x) {
+  c(Min=(sort(x)[1]),
+    Max=(-(sort(-x)[1])),
+    Mean=(sum(x)/length(x)),
+    Median = ((sort(x)[floor(length(x) / 2)]) + (sort(x)[ceiling(length() / 2)])) / 2)
+    QOne=(x)[floor((length(x) + 1) / 2)
+    QThree = (x)[ceiling(3 * ((length(x) + 1) / 2))],
+    SD=sqrt((sum((x - (sum(x) / length(x))) ^ 2)) / (length(x) - 1)),
+    No.Miss=sum(is.na(x))
+    names(x) <- c("Min", "Max", "Mean", "Median", "QOne", "QThree", "SD", "No.Miss")
+    print(x)
+}
